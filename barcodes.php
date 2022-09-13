@@ -14,12 +14,10 @@ require_once('./inc/head.php');
 <?
 require_once('./inc/menu.php');
 
-use phpGrid\C_DataBase;
+use phpGrid\C_DataGrid;
 
-$db = new \C_DataBase(PHPGRID_DB_HOSTNAME, PHPGRID_DB_USERNAME, PHPGRID_DB_PASSWORD, PHPGRID_DB_NAME, PHPGRID_DB_TYPE,PHPGRID_DB_CHARSET);
-
-$results = $db->db_query('SELECT * FROM products');
-$data1 = array();
+$db = new \C_DataGrid('SELECT * FROM products');
+$db->display();
 $count = 0;
 
 $generator = new Picqer\Barcode\BarcodeGeneratorHTML();
@@ -28,11 +26,11 @@ echo '<ul class="barcode">';
 while($row = $db->fetch_array_assoc($results)) {
 	for($i = 0; $i < $db->num_fields($results); $i++) {
 	    $col_name = $db->field_name($results, $i);
-	    $data1[$count][$col_name] = $row[$col_name];
+	    $db[$count][$col_name] = $row[$col_name];
 	}
 
-	$code = str_pad($data1[$count]['id'], 8, '0', STR_PAD_LEFT);
-	$label = $data1[$count]['ProductLabel'];
+	$code = str_pad($db[$count]['id'], 8, '0', STR_PAD_LEFT);
+	$label = $db[$count]['ProductLabel'];
 
 	echo '<li><div>';
 	echo $generator->getBarcode($code, $generator::TYPE_CODE_128, 2, 50);
