@@ -1,16 +1,15 @@
 <?php
 use phpGrid\C_DataGrid;
 
-include_once("phpGrid/conf.php");
-require_once("phpChart/conf.php");
-include_once('inc/head.php');
+require_once("./phpGrid/conf.php");
+require_once('./inc/head.php');
 ?>
 
 <h1>My Inventory Manager Reports</h1>
 
 <?php
 $_GET['currentPage'] = 'reports';
-include_once('inc/menu.php');
+require_once('./inc/menu.php');
 ?>
 
 <br />
@@ -61,5 +60,5 @@ div#gbox_products{
 </style>
 
 <?php
-include_once('inc/footer.php');
+require_once('./inc/footer.php');
 ?>

@@ -1,22 +1,22 @@
 <?php
 use phpGrid\C_DataGrid;
 
-include_once("phpGrid/conf.php");
-include_once('inc/head.php');
+require_once("./phpGrid/conf.php");
+require_once("./inc/head.php");
 ?>
 
 <h1>My Inventory Manager</h1>
 
 <?php
 $_GET['currentPage'] = 'outgoing';
-include_once('inc/menu.php');
+require_once("./inc/menu.php");
 ?>
 
 <button class="add-new-row">Add New Order</button>
 
 
 <?php
-$dgOrd = new C_DataGrid('SELECT id, OrderDate, ProductId, NumberShipped, First, Last FROM orders', 'id', 'orders');
+$dgOrd = new \C_DataGrid('SELECT id, OrderDate, ProductId, NumberShipped, First, Last FROM orders', 'id', 'orders');
 $dgOrd->set_sortname('OrderDate', 'DESC');
 $dgOrd->set_col_hidden('id', false);
 
@@ -58,5 +58,5 @@ $(function(){
 </script>
 
 <?php
-include_once('inc/footer.php');
+require_once("./inc/footer.php");
 ?>

@@ -5,14 +5,14 @@ error_reporting(E_ALL);
 
 $_GET['currentPage'] = 'barcodes';
 
-require_once dirname(__DIR__) . '/inventory-manager-master/vendor/autoload.php';
-include_once('inc/head.php');
+// require_once dirname(__DIR__) . '/inventory-manager-master/vendor/autoload.php';
+require_once('./inc/head.php');
 ?>
 
 <h1>My Inventory Manager</h1>
 
 <?
-include_once('inc/menu.php');
+require_once('./inc/menu.php');
 
 use phpGrid\C_DataBase;
 
@@ -45,4 +45,4 @@ while($row = $db->fetch_array_assoc($results)) {
 }
 echo '</ul>';
 
-include_once('inc/footer.php');
+require_once('./inc/footer.php');
