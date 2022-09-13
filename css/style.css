@@ -1,41 +1,46 @@
 @import url('https://fonts.googleapis.com/css?family=Lato');
 
 body {
-   padding: 0 15px;
-   margin: 0 15px;
-   font-family: lato, sans-serif, arial;
+  padding: 0 15px;
+  margin: 0 15px;
+  font-family: lato, sans-serif, arial;
 }
+
 .ui-jqgrid-htable th,
-.ui-jqgrid tr.jqgrow td{ 
-    text-transform: capitalize; 
+.ui-jqgrid tr.jqgrow td {
+  text-transform: capitalize;
 }
-.ui-jqgrid-htable th div{
-    font-weight: bold;
+
+.ui-jqgrid-htable th div {
+  font-weight: bold;
 }
+
 #menu ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: #3FC300;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: black;
 }
 
 #menu ul li {
-    float: left;
+  float: left;
 }
 
-#menu  ul li a {
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
+#menu ul li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
 }
-#menu  ul li a:hover,
+
+#menu ul li a:hover,
 #menu .active {
-    background-color: #ddd;
-    color:black;
+  background-color: #ddd;
+  color: black;
 }
+
 .footer {
   position: fixed;
   right: 0;
@@ -45,29 +50,31 @@ body {
   background-color: #efefef;
   text-align: center;
 }
-.ui-tabs-panel #subtitle{
-  display:none;
+
+.ui-tabs-panel #subtitle {
+  display: none;
 }
 
 ul.barcode {
   list-style-type: none;
 }
 
-ul.barcode li > div {
+ul.barcode li>div {
   text-align: center;
   float: left;
   margin: 30px;
   max-width: 300px;
-  margin-bottom:15px;
+  margin-bottom: 15px;
 }
 
-.number-columns{
+.number-columns {
   font-weight: 800 !important;
 }
+
 .add-new-row {
-  padding:15px;
-  margin:15px;
-  font-size:16px;
-  background:red;
-  color:white;
+  padding: 15px;
+  margin: 15px;
+  font-size: 16px;
+  background: red;
+  color: white;
 }
