@@ -138,9 +138,9 @@ $dgOrd->enable_edit('FORM');
 
 $dgOrd->display();
 
-$dgProd->set_masterdetail($dgPur, 'ProductId', 'id');
-$dgProd->set_masterdetail($dgOrd, 'ProductId', 'id');
-$dgProd->display();
+// $dgProd->set_masterdetail($dgPur, 'ProductId', 'id');
+// $dgProd->set_masterdetail($dgOrd, 'ProductId', 'id');
+// $dgProd->display();
 ?>
 
 <span style="background-color:gold">______</span> -- Indicating inventory that needs reorder.<br />
