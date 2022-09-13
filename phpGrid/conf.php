@@ -1,10 +1,10 @@
 <?php
 
 //* mysql example 
-define('PHPGRID_DB_HOSTNAME','211.117.154.156'); // database host name
-define('PHPGRID_DB_USERNAME', 'root');     // database user name
-define('PHPGRID_DB_PASSWORD', 'og11to07!@'); // database password
-define('PHPGRID_DB_NAME', 'ogto'); // database name
+define('PHPGRID_DB_HOSTNAME','3.37.32.122'); // database host name
+define('PHPGRID_DB_USERNAME', 'notitle');     // database user name
+define('PHPGRID_DB_PASSWORD', 'shxkdlxmf***'); // database password
+define('PHPGRID_DB_NAME', 'notitle'); // database name
 define('PHPGRID_DB_TYPE', 'mysql');  // database type
 define('PHPGRID_DB_CHARSET','utf8mb4'); // ex: utf8(for mysql),AL32UTF8 (for oracle), leave blank to use the default charset
 

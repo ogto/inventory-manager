@@ -20,7 +20,7 @@ $db = new \C_DataGrid('SELECT * FROM products');
 $db->display();
 $count = 0;
 
-$generator = new Picqer\Barcode\BarcodeGeneratorHTML();
+// $generator = new Picqer\Barcode\BarcodeGeneratorHTML();
 
 echo '<ul class="barcode">';
 while($row = $db->fetch_array_assoc($results)) {
@@ -33,7 +33,7 @@ while($row = $db->fetch_array_assoc($results)) {
 	$label = $db[$count]['ProductLabel'];
 
 	echo '<li><div>';
-	echo $generator->getBarcode($code, $generator::TYPE_CODE_128, 2, 50);
+	// echo $generator->getBarcode($code, $generator::TYPE_CODE_128, 2, 50);
 	echo "<div>$code</div>";
 	echo "<div>$label</div>";
 	echo '</div></li>';
