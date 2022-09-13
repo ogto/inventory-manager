@@ -13,6 +13,7 @@ include_once('inc/menu.php');
 ?>
 
 <?php
+error_reporting(E_ALL&~E_WARNING);
 $dgProd = new \C_DataGrid('SELECT * FROM products', 'id', 'products');
 $dgProd->set_col_hidden('id', false);
 $dgProd->enable_autowidth(true)->set_dimension('auto', '200px')->set_pagesize(100);
@@ -32,7 +33,7 @@ $dgProd->set_col_format('InventoryShipped', 'integer', array('thousandsSeparator
 $dgProd->set_col_format('InventoryOnHand', 'integer', array('thousandsSeparator'=>',', 'defaultValue'=>'0'));
 $dgProd->set_col_format('MinimumRequired', 'integer', array('thousandsSeparator'=>',', 'defaultValue'=>'0'));
 
-$dgProd->set_conditional_format('InventoryOnHand', 'CELL', array("condition"=>"lt",
+$dgProd->set_col_format('InventoryOnHand', 'CELL', array("condition"=>"lt",
                                                   "value"=>"1",
                                                   "css"=> array("color"=>"red","background-color"=>"#DCDCDC")));
 
@@ -69,14 +70,14 @@ $dgProd->add_event("jqGridLoadComplete", $onGridLoadComplete);
 $dgProd->enable_edit('FORM');
 
 // Purchases detail grid
-$dgPur = new C_DataGrid('SELECT id, PurchaseDate, ProductId, NumberReceived, SupplierId FROM purchases', 'id', 'purchases');
+$dgPur = new \C_DataGrid('SELECT id, PurchaseDate, ProductId, NumberReceived, SupplierId FROM purchases', 'id', 'purchases');
 $dgPur->set_col_hidden('id', false)->set_caption('Incoming Purchases');
 $dgPur->set_col_edittype('ProductId', 'select', "select id, ProductLabel from products");
 $dgPur->set_col_edittype('SupplierId', 'select', "select id, supplier from suppliers");
 $dgPur->set_dimension('800px');
 
 // Orders detail grid
-$dgOrd = new C_DataGrid('SELECT id, OrderDate, ProductId, NumberShipped, First, Last FROM orders', 'id', 'orders');
+$dgOrd = new \C_DataGrid('SELECT id, OrderDate, ProductId, NumberShipped, First, Last FROM orders', 'id', 'orders');
 $dgOrd->set_sortname('OrderDate', 'DESC')->set_caption('Outgoing Orders');
 $dgOrd->set_col_hidden('id', false);
 $dgOrd->set_col_edittype('ProductId', 'select', "select id, ProductLabel from products");

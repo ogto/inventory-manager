@@ -1,6 +1,5 @@
 <?php
 use phpGrid\C_DataGrid;
-
 include_once("phpGrid/conf.php");
 include_once('inc/head.php');
 ?>
@@ -15,7 +14,8 @@ include_once('inc/menu.php');
 <button class="add-new-row">Add New Purchase</button>
 
 <?php
-$dgPur = new C_DataGrid('SELECT id, PurchaseDate, ProductId, NumberReceived, SupplierId FROM purchases', 'id', 'purchases');
+error_reporting(E_ALL&~E_NOTICE);
+$dgPur = new \C_DataGrid('SELECT id, PurchaseDate, ProductId, NumberReceived, SupplierId FROM purchases', 'id', 'purchases');
 $dgPur->set_col_hidden('id', false);
 
 $dgPur->set_col_title('PurchaseDate', 'Date of Purchase');
