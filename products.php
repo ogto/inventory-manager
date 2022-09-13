@@ -13,7 +13,7 @@ include_once('inc/menu.php');
 ?>
 
 <?php
-$dgProd = new C_DataGrid('SELECT * FROM products', 'id', 'products');
+$dgProd = new \C_DataGrid('SELECT * FROM products', 'id', 'products');
 $dgProd->set_col_hidden('id', false);
 $dgProd->enable_autowidth(true)->set_dimension('auto', '200px')->set_pagesize(100);
 
