@@ -69,6 +69,7 @@ ONGRIDLOADCOMPLETE;
 $dgProd->add_event("jqGridLoadComplete", $onGridLoadComplete);
 $dgProd->enable_edit('FORM');
 
+$dgProd->display();
 // Purchases detail grid
 // $dgPur = new \C_DataGrid('SELECT id, PurchaseDate, ProductId, NumberReceived, SupplierId FROM purchases', 'id', 'purchases');
 // $dgPur->set_col_hidden('id', false)->set_caption('Incoming Purchases');
@@ -138,9 +139,6 @@ $dgOrd->enable_edit('FORM');
 
 $dgOrd->display();
 
-// $dgProd->set_masterdetail($dgPur, 'ProductId', 'id');
-// $dgProd->set_masterdetail($dgOrd, 'ProductId', 'id');
-// $dgProd->display();
 ?>
 
 <span style="background-color:gold">______</span> -- Indicating inventory that needs reorder.<br />
