@@ -13,7 +13,7 @@ require_once('./inc/head.php');
 
 <?
 require_once('./inc/menu.php');
-
+require_once("./phpGrid/conf.php");
 use phpGrid\C_DataGrid;
 
 $db = new \C_DataGrid('SELECT * FROM products');
