@@ -70,18 +70,73 @@ $dgProd->add_event("jqGridLoadComplete", $onGridLoadComplete);
 $dgProd->enable_edit('FORM');
 
 // Purchases detail grid
+// $dgPur = new \C_DataGrid('SELECT id, PurchaseDate, ProductId, NumberReceived, SupplierId FROM purchases', 'id', 'purchases');
+// $dgPur->set_col_hidden('id', false)->set_caption('Incoming Purchases');
+// $dgPur->set_col_edittype('ProductId', 'select', "select id, ProductLabel from products");
+// $dgPur->set_col_edittype('SupplierId', 'select', "select id, supplier from suppliers");
+// $dgPur->set_dimension('800px');
+
 $dgPur = new \C_DataGrid('SELECT id, PurchaseDate, ProductId, NumberReceived, SupplierId FROM purchases', 'id', 'purchases');
-$dgPur->set_col_hidden('id', false)->set_caption('Incoming Purchases');
-$dgPur->set_col_edittype('ProductId', 'select', "select id, ProductLabel from products");
-$dgPur->set_col_edittype('SupplierId', 'select', "select id, supplier from suppliers");
-$dgPur->set_dimension('800px');
+$dgPur->set_col_hidden('id', false);
+
+$dgPur->set_col_title('PurchaseDate', 'Date of Purchase');
+$dgPur->set_col_title('ProductId', 'Product');
+$dgPur->set_col_title('NumberReceived', 'Number Received');
+$dgPur->set_col_title('SupplierId', 'Supplier');
+
+$dgPur->set_col_edittype('ProductId', 'autocomplete', "select id, concat(lpad(id, 8, '0'), ' | ', ProductLabel) from products");
+$dgPur->set_col_edittype('SupplierId', 'autocomplete', "select id, supplier from suppliers");
+
+// $dgPur->enable_edit('FORM');
+$dgPur->set_pagesize(100);
+
+$dgPur->set_col_width('PurchaseDate', '50px');
+$dgPur->set_col_width('NumberReceived', '35px');
+
+$dgPur -> set_group_properties('ProductId', false, true, true, false);
+$dgPur -> set_group_summary('NumberReceived','sum');
+
+$dgPur->enable_autowidth(true);
+
+$dgPur->enable_edit('FORM');
+$dgPur->display();
 
 // Orders detail grid
+// $dgOrd = new \C_DataGrid('SELECT id, OrderDate, ProductId, NumberShipped, First, Last FROM orders', 'id', 'orders');
+// $dgOrd->set_sortname('OrderDate', 'DESC')->set_caption('Outgoing Orders');
+// $dgOrd->set_col_hidden('id', false);
+// $dgOrd->set_col_edittype('ProductId', 'select', "select id, ProductLabel from products");
+// $dgOrd->set_dimension('800px');
+
 $dgOrd = new \C_DataGrid('SELECT id, OrderDate, ProductId, NumberShipped, First, Last FROM orders', 'id', 'orders');
-$dgOrd->set_sortname('OrderDate', 'DESC')->set_caption('Outgoing Orders');
+$dgOrd->set_sortname('OrderDate', 'DESC');
 $dgOrd->set_col_hidden('id', false);
-$dgOrd->set_col_edittype('ProductId', 'select', "select id, ProductLabel from products");
-$dgOrd->set_dimension('800px');
+
+$dgOrd->set_col_title('OrderDate', 'Order Date');
+$dgOrd->set_col_title('ProductId', 'Product');
+$dgOrd->set_col_title('NumberShipped', 'Number Shipped');
+
+$dgOrd->set_col_edittype('ProductId', 'autocomplete', "select id, ProductLabel from products");
+
+// $dgOrd->enable_edit('FORM');
+$dgOrd->set_pagesize(100);
+
+$dgOrd->set_col_width('OrderDate', '30px');
+$dgOrd->set_col_width('NumberShipped', '35px');
+$dgOrd->set_col_width('First', '20px');
+$dgOrd->set_col_width('Last', '20px');
+
+$dgOrd->set_grid_method('setGroupHeaders', array(
+                                array('useColSpanStyle'=>true),
+                                'groupHeaders'=>array(
+                                        array('startColumnName'=>'First',
+                                              'numberOfColumns'=>2,
+                                              'titleText'=>'Customer Name') )));
+
+$dgOrd->enable_autowidth(true);
+$dgOrd->enable_edit('FORM');
+
+$dgOrd->display();
 
 $dgProd->set_masterdetail($dgPur, 'ProductId', 'id');
 $dgProd->set_masterdetail($dgOrd, 'ProductId', 'id');
