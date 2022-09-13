@@ -16,7 +16,7 @@ require_once('./inc/menu.php');
 
 use phpGrid\C_DataBase;
 
-$db = new C_DataBase(PHPGRID_DB_HOSTNAME, PHPGRID_DB_USERNAME, PHPGRID_DB_PASSWORD, PHPGRID_DB_NAME, PHPGRID_DB_TYPE,PHPGRID_DB_CHARSET);
+$db = new \C_DataBase(PHPGRID_DB_HOSTNAME, PHPGRID_DB_USERNAME, PHPGRID_DB_PASSWORD, PHPGRID_DB_NAME, PHPGRID_DB_TYPE,PHPGRID_DB_CHARSET);
 
 $results = $db->db_query('SELECT * FROM products');
 $data1 = array();

@@ -17,7 +17,7 @@ require_once('./inc/menu.php');
 
 
 <?php
-$dgProd = new C_DataGrid('SELECT id, ProductLabel, InventoryReceived FROM products', 'id', 'products');
+$dgProd = new \C_DataGrid('SELECT id, ProductLabel, InventoryReceived FROM products', 'id', 'products');
 $dgProd->set_col_hidden('id', false);
 $dgProd->set_dimension('auto', 'auto')->set_pagesize(100);
 $onGridLoadComplete = <<<ONGRIDLOADCOMPLETE
