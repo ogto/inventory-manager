@@ -11,10 +11,7 @@ require_once("./inc/head.php");
 $_GET['currentPage'] = 'outgoing';
 require_once("./inc/menu.php");
 ?>
-
-<button class="add-new-row">Add New Order</button>
-
-
+<!-- <button class="add-new-row">Add New Order</button> -->
 <?php
 $dgOrd = new \C_DataGrid('SELECT id, OrderDate, ProductId, NumberShipped, First, Last FROM orders', 'id', 'orders');
 $dgOrd->set_sortname('OrderDate', 'DESC');

@@ -10,9 +10,7 @@ include_once('inc/head.php');
 $_GET['currentPage'] = 'incoming';
 include_once('inc/menu.php');
 ?>
-
-<button class="add-new-row">Add New Purchase</button>
-
+<!-- <button class="add-new-row">Add New Purchase</button> -->
 <?php
 error_reporting(E_ALL&~E_NOTICE);
 $dgPur = new \C_DataGrid('SELECT id, PurchaseDate, ProductId, NumberReceived, SupplierId FROM purchases', 'id', 'purchases');
